@@ -40,6 +40,7 @@ const todoSlice = createSlice({
       const prevTodos = [...state.todos];
       const index = prevTodos.findIndex((todo) => todo.id === id);
       prevTodos[index] = updatedTodo;
+      console.log(prevTodos);
       state.todos = prevTodos;
     },
   },

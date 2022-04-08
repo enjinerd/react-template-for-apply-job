@@ -32,10 +32,14 @@ const TodoForm = () => {
   };
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-      <label htmlFor="title">Title</label>
-      <input type="text" name="title" id="title" value={todo.title} onChange={handleChange} />
-      <label htmlFor="description">Description</label>
-      <textarea name="description" id="description" value={todo.description} onChange={handleChange} />
+      <label htmlFor="title" className="font-bold">
+        Title
+      </label>
+      <input className="text-black border border-black border-1" type="text" name="title" id="title" value={todo.title} onChange={handleChange} />
+      <label htmlFor="description" className="font-bold">
+        Description
+      </label>
+      <textarea className="text-black border border-black border-1" name="description" id="description" value={todo.description} onChange={handleChange} />
       <button type="submit" className="w-auto h-8 px-3 py-1 text-white bg-blue-800 hover:bg-blue-600">
         Add Todo
       </button>

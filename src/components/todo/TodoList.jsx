@@ -1,8 +1,8 @@
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos }) => {
-  const todoIsDone = (todo) => todo.status === 1;
-  const todoIsNotDone = (todo) => todo.status === 0;
+  const todoIsDone = (todo) => todo?.status === 1;
+  const todoIsNotDone = (todo) => todo?.status === 0;
   const todosDone = todos.filter(todoIsDone).sort((a, d) => new Date(d.createdAt) - new Date(a.createdAt));
   const todosNotDone = todos.filter(todoIsNotDone).sort((a, d) => new Date(a.createdAt) - new Date(d.createdAt));
 
