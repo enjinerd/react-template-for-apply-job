@@ -3,6 +3,7 @@ import { Page, PageContent } from '../../components/layout/page';
 import { fetchTodos } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { initTodos } from '../../store/todoSlice';
+import { TodoList } from '../../components/todo';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -12,13 +13,11 @@ const HomePage = () => {
       dispatch(initTodos(todos));
     });
   }, []);
-  useEffect(() => {
-    console.log('todosData', todosData);
-  }, [todosData]);
+
   return (
     <Page>
       <PageContent>
-        <p>HomePage</p>
+        <TodoList todos={todosData} />
       </PageContent>
     </Page>
   );
