@@ -17,16 +17,16 @@ const todoSlice = createSlice({
       state.todos = prevTodos;
     },
     removeTodo: (state, action) => {
-      const todoId = action.payload.todoId;
+      const id = action.payload.id;
       const prevTodos = [...state.todos];
-      const index = prevTodos.findIndex((todo) => todo.id === todoId);
+      const index = prevTodos.findIndex((todo) => todo.id === id);
       prevTodos.splice(index, 1);
       state.todos = prevTodos;
     },
     toggleTodo: (state, action) => {
-      const todoId = action.payload.todoId;
+      const id = action.payload.id;
       const prevTodos = [...state.todos];
-      const index = prevTodos.findIndex((todo) => todo.id === todoId);
+      const index = prevTodos.findIndex((todo) => todo.id === id);
       if (prevTodos[index].status === 0) {
         prevTodos[index].status = 1;
       } else {
@@ -35,10 +35,10 @@ const todoSlice = createSlice({
       state.todos = prevTodos;
     },
     updateTodo: (state, action) => {
-      const todoId = action.payload.todoId;
+      const id = action.payload.id;
       const updatedTodo = action.payload.updatedTodo;
       const prevTodos = [...state.todos];
-      const index = prevTodos.findIndex((todo) => todo.id === todoId);
+      const index = prevTodos.findIndex((todo) => todo.id === id);
       prevTodos[index] = updatedTodo;
       state.todos = prevTodos;
     },
