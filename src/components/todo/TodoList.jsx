@@ -7,15 +7,15 @@ const TodoList = ({ todos }) => {
   const todosNotDone = todos.filter(todoIsNotDone).sort((a, d) => new Date(a.createdAt) - new Date(d.createdAt));
 
   return (
-    <section className="flex flex-row gap-6">
-      <div className="flex flex-col gap-2 px-3 border-r-2 border-gray-600">
-        <h3>Doing</h3>
+    <section className="grid grid-flow-col grid-cols-2 gap-6">
+      <div className="flex flex-col gap-2 px-3 py-3 bg-orange-200 border-gray-600 border-r-1">
+        <h3 className="font-bold">Doing</h3>
         {todosNotDone.map((todo) => (
           <TodoItem key={todo.id} todo={todo} />
         ))}
       </div>
-      <div className="flex flex-col gap-2">
-        <h3>Done</h3>
+      <div className="flex flex-col gap-2 px-3 py-3 bg-green-200 border-gray-600 border-l-1">
+        <h3 className="font-bold">Done</h3>
         {todosDone.map((todo) => (
           <TodoItem key={todo.id} todo={todo} />
         ))}

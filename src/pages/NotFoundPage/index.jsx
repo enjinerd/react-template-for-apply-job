@@ -1,10 +1,13 @@
+import { Page, PageContent } from '../../components/layout/page';
+
 const NotFoundPage = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>404</p>
-      </header>
-    </div>
+    <Page>
+      <PageContent>
+        <h1>404</h1>
+        <p>Page not found</p>
+      </PageContent>
+    </Page>
   );
 };
 

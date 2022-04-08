@@ -1,13 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
-function Modal({ isOpen, setOpen, children, title }) {
-  function closeModal() {
+const Modal = ({ isOpen, setOpen, children, title }) => {
+  const closeModal = () => {
     setOpen(false);
-  }
+  };
 
   return (
-    <Transition appear show={isOpen} as={Fragment}>
+    <Transition appear show={isOpen} as="div">
       <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={closeModal}>
         <div className="min-h-screen px-4 text-center">
           <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
@@ -40,6 +40,6 @@ function Modal({ isOpen, setOpen, children, title }) {
       </Dialog>
     </Transition>
   );
-}
+};
 
 export default Modal;
