@@ -1,24 +1,33 @@
-import { useEffect, useEffectl, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Page, PageContent } from '../../components/layout/page';
 import { fetchTodos } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { initTodos } from '../../store/todoSlice';
+import { TodoList, TodoForm } from '../../components/todo';
+import { Spinner } from '../../components/ui';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const todosData = useSelector((state) => state.todosData.todos);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetchTodos().then((todos) => {
       dispatch(initTodos(todos));
+      setIsLoading(false);
     });
   }, []);
-  useEffect(() => {
-    console.log('todosData', todosData);
-  }, [todosData]);
+
   return (
     <Page>
       <PageContent>
-        <p>HomePage</p>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <TodoForm />
+            <TodoList todos={todosData} />
+          </>
+        )}
       </PageContent>
     </Page>
   );
