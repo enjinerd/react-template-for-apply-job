@@ -11,6 +11,7 @@ const todoSlice = createSlice({
     },
     addTodo: (state, action) => {
       const todo = action.payload.todo;
+      todo.id = state.todos.length + 1;
       const prevTodos = [...state.todos];
       prevTodos.push(todo);
       state.todos = prevTodos;
